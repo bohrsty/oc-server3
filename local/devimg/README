@@ -1,0 +1,75 @@
+***************************************************************************
+*  For license information see doc/license.txt
+*
+*  Unicode Reminder メモ
+***************************************************************************
+
+For security instructions, please read SECURITY file.
+
+
+
+#################
+# Installation: #
+#################
+To get all nessessary files in the uptodate version any existing source code directory oc-server3
+in /var/www has to be removed or renamed and cloned and checked out from github:
+cd /var/www
+git clone https://github.com/OpencachingDeutschland/oc-server3
+
+For installation of the config website the following directories and files have to be created
+and/or filled with the according content:
+mkdir /ocmaint
+/ocmaint/permissions.sh < updates/ocmaint-permissions.sh
+/ocmaint/ifup_post.sh < updates/ocmaint-ifup_post.sh
+mkdir /var/www/config
+/etc/httpd/conf.d/000_default.conf < updates/etc-httpd-conf.d-000_default.conf
+/etc/httpd/conf.d/www.conf < updates/etc-httpd-conf.d-www.conf
+/etc/my.cnf < updates/etc-my.cnf
+/etc/php.d/000_default.ini < updates/etc-php.d-000_default.ini
+/etc/sudoers.d/oc < updates/etc-sudoers.d-oc [chmod 0440]
+
+The following commands have to be inserted in the named files:
+. /ocmaint/permissions.sh >> /etc/rc.local
+
+. /ocmaint/ifup-post.sh >> /etc/sysconfig/network-scripts/ifup-post (before the line with exit 0;)
+
+After reboot of the VM check the permissions of all files above (world rwx except /etc/my.cnf
+and /etc/sudoers.d/oc) and owner apache:apache (recursively) for /ocmaint and /var/www.
+
+
+
+###########################
+# Filesystem permissions: #
+###########################
+The filesystem permissions of the following files will be ajusted to world 'rwx' on system
+startup:
+
+/etc/sysconfig/network-scripts/ifcfg-eth0
+/etc/issue
+/etc/httpd/conf.d/000_default.conf
+/etc/httpd/conf.d/zzz_www.conf
+/etc/php.d/000_default.ini
+/etc/samba/smb.conf
+
+The owner and group settings for the following directories will be ajusted recursively to
+'apache:apache' on system startup:
+
+/ocmaint
+/var/www
+
+These changes are done per /ocmaint/permissions.sh, the script is executed in /etc/rc.local.
+Additional files (or changes of existing) have to be configured in the ocmaint-permissions.sh
+template file and updated via update-dist.php
+The variable CONFIGSPERM is space separated and takes the absolute path to the file to be changed.
+DIROWNER as well is space separated and takes the absolute path to the directory to be changed
+recursively.
+
+
+
+#################
+# Login screen: #
+#################
+The content of the login screen on console is modified by the /ocmaint/ifup-post.sh.
+This script is executed every time after any network interface comes UP (executed in
+/etc/sysconfig/network-scripts/ifup-post). Changes are made in the ocmaint-ifup_post.sh
+template file.

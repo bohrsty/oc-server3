@@ -1,0 +1,5 @@
+To make this VM easy configurable and updatable some filesystem permissions of service
+configuration files are changed to be writable for the apache webserver.
+
+DO NOT MAKE THIS WEBSERVER DIRECTLY AVAILABLE FROM THE INTERNET TO AVOID DISTRIBUTION
+OF MALWARE! 

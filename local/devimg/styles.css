@@ -1,0 +1,169 @@
+/***************************************************************************
+ *  For license information see doc/license.txt
+ *
+ *  Unicode Reminder メモ
+ ***************************************************************************/
+
+body {
+	font-family: arial, sans-serif, Tahoma, Verdana;
+}
+
+div#head {
+	margin-bottom: 40px;
+}
+
+div#head h1 {
+	text-align: center;
+}
+
+#logo {
+	position: absolute;
+	top: 5px;
+	left: 200px;
+}
+
+div#navi {
+	width: 100%;
+	margin-bottom: 40px;
+}
+
+div#navi p.navi {
+	text-align: center;
+}
+
+div#content {
+	width: 900px;
+	margin: 0px auto 40px auto;
+}
+
+div#foot {
+	height: 30px;
+	width: 900px;
+	margin: auto;
+}
+
+div#foot p {
+	font-size: 70%;
+	text-align: center;
+}
+
+p.updatable {
+	color: red;
+	font-weight: bold;
+}
+
+p.updatable a {
+	color: red;
+	text-decoration: underline;
+}
+p.updatable a:hover {
+	color: red;
+	text-decoration: underline;
+}
+p.updatable a:visited {
+	color: red;
+	text-decoration: underline;
+}
+p.updatable a:active {
+	color: red;
+	text-decoration: underline;
+}
+
+p.error {
+	color: red;
+	font-weight: bold;
+}
+
+tr.space {
+	height: 20px;
+}
+
+.redbold {
+	color: red;
+	font-weight: bold;
+}
+
+.red {
+	color: red;
+}
+
+td.text {
+	width: 25%; 
+}
+
+.button {
+	width: 150px;
+	margin: 5px 0px 0px 0px;
+	list-style-type: none;
+	border: 1px solid #5f90bb;
+	padding: 3px 20px;
+	background-color: #dbe6f1;
+	color: #000000;
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	cursor: pointer;
+}
+
+.button:hover {
+	background-color:#e5eef5;
+	box-shadow: 0px 0px 1px #555;
+	-moz-box-shadow: 0px 0px 1px #555;
+	-webkit-box-shadow: 0px 0px 1px #555;
+}
+
+a.abutton {
+	color: black;
+	text-decoration: none;
+}
+a.abutton:hover {
+	color: black;
+	text-decoration: none;
+}
+a.abutton:active {
+	color: black;
+	text-decoration: none;
+}
+a.abutton:visited {
+	color: black;
+	text-decoration: none;
+}
+
+.hint {
+	font-size: 85%;
+	list-style-type: none;
+	margin: 0px 0px 20px 0px;
+	padding: 0px 0px 0px 30px;
+}
+
+p.pbutton {
+	margin: 0px 0px 8px 0px;
+}
+
+span.fspath {
+	font-size: 120%;
+	font-family: monospace;
+}
+
+p.code {
+	font-family: monospace;
+	background-color: #eee;
+	width: 100%;
+	padding: 2px;
+}
+
+a.helplink {
+	font-size: 85%;
+}
+
+a.helplink:visited {
+	color: blue;
+}
+
+a.updatehelp {
+	font-size: 95%;
+}
+
+a.updatehelp:visited {
+	color: blue;
+}

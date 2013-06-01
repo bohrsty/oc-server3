@@ -1,0 +1,3 @@
+## Allow apache execute defined scripts without password
+Cmnd_Alias OC = /sbin/service network restart, /sbin/reboot, /sbin/shutdown, /usr/bin/git config --system *, /bin/cat */updates/etc-my.cnf > /etc/my.cnf, /bin/chmod 0??? /etc/sudoers.d/oc
+apache          ALL=(ALL)       NOPASSWD: OC

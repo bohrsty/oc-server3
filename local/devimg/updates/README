@@ -1,0 +1,31 @@
+***************************************************************************
+*  For license information see doc/license.txt
+*
+*  Unicode Reminder メモ
+***************************************************************************
+
+Instructions and notices for update script:
+
+The update-dist.php have to be completed with all changes to be made with the system.
+It should directly overwrite the config files except /etc/my.cnf and /etc/sudoers.d/oc
+(see below). 
+
+
+##############
+# etc-my.cf: #
+##############
+update is only possible by copying the template per
+system('sudo cat [/path/to/etc-my.cnf] > [/etc/my.cnf]')
+mysqld does not allow world-writable config-files (they will be ignored)
+
+
+#####################
+# etc-sudoers.d-oc: #
+#####################
+update is only possible by changing write permissions for /etc/sudoers.d/oc
+to allow world edit (i.e. system('sudo chmod 0447 /etc/sudoers.d/oc');), update
+the file using the according PHP functions and changing back the permissions (i.e.
+system('sudo chmod 0440 /etc/sudoers.d/oc);)
+
+NOT CHANGING BACK THE PERMISSIONS TO '0440' WILL LEAVE THIS SYSTEM UNCONFIGURABLE
+VIA THE CONFIG WEBSITE!
