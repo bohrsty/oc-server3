@@ -19,12 +19,24 @@ echo "" >> $I
 echo "" >> $I
 echo "For further configuration and documentation go to" >> $I
 echo "" >> $I
-echo "http://$IP" >> $I
+# is there an ip address?
+if [ "x$IP" == "x" ]
+then
+  echo "  !!! No ip address, please check network settings. !!!" >> $I
+else
+  echo "http://$IP" >> $I
+fi
 echo "" >> $I
 echo "" >> $I
 echo "For access to console or via ssh as user root use password \"dev\"" >> $I
 echo "" >> $I
-echo "i.e. ssh -l root $IP" >> $I
+# is there an ip address?
+if [ "x$IP" == "x" ]
+then
+  echo "  !!! No ip address, please check network settings. !!!" >> $I
+else
+  echo "i.e. ssh -l root $IP" >> $I
+fi
 echo "" >> $I
 echo "" >> $I
 echo "For help and support visit the forum \"forum.opencaching-network.org\"" >> $I
